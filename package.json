@@ -1,9 +1,12 @@
 {
-  "name": "@workly",
+  "name": "@workly/base",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start":"docker-compose -f .docker/docker-compose.yml up -d", 
+    "start:rebuild":"docker-compose -f .docker/docker-compose.yml up build --no-cache -d", 
+    "stop":"docker-compose -f .docker/docker-compose.yml down", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
