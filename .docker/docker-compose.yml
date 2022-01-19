@@ -16,6 +16,19 @@ services:
       - /app/node_modules
       - /app/.next
 
+  workly-api:
+    container_name: workly-api
+    build:
+      context: ../services/workly-api
+      dockerfile: Dockerfile
+    environment: 
+      AUTH0_SECRET: ${AUTH_SECRET}
+      AUTH0_AUDIENCE: ${AUTH_AUDIENCE}
+    ports:
+      - '3001:3000'
+      
+
+# Infrastructure
   database:
     container_name: database
     image: mcr.microsoft.com/mssql/server:2019-latest
