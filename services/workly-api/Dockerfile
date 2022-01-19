@@ -1,4 +1,4 @@
-FROM node:apline AS dependencies
+FROM node:alpine AS dependencies
 WORKDIR /app
 COPY package.json package-*.json ./
 RUN npm ci
