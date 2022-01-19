@@ -2,3 +2,5 @@ node_modules
 Dockerfile
 .gitignore
 .git
+.next
+README.md
