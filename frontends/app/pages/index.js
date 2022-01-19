@@ -3,6 +3,16 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  useEffect(() => {
+    fetch({
+      method: "GET",
+      url: "http://workly-api:3000"
+    }).then(res => res.text())
+      .then(data => console.log("Home", data))
+      .catch(err => console.error(err));
+
+  }, []);
+  //TODO: Collect $5000 JMD FROM DANEIL TOMORROW
   return (
     <div className={styles.container}>
       <Head>
