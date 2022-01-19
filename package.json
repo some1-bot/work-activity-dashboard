@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start":"docker-compose -f .docker/docker-compose.yml up -d", 
-    "start:rebuild":"docker-compose -f .docker/docker-compose.yml up build --no-cache -d", 
+    "start:rebuild":"docker-compose -f .docker/docker-compose.yml build --no-cache -d", 
+    "start:build:web":"docker-compose -f .docker/docker-compose.yml up frontend --force-recreate -d", 
+    "start:build:api":"docker-compose -f .docker/docker-compose.yml up workly-api --force-recreate -d", 
     "stop":"docker-compose -f .docker/docker-compose.yml down", 
+    "stop:web":"docker-compose -f .docker/docker-compose.yml down frontend", 
+    "stop:api":"docker-compose -f .docker/docker-compose.yml down workly-api", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
