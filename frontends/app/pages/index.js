@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home({ data }) {
   useEffect(() => {
     fetch({
       method: "GET",
@@ -13,7 +13,7 @@ export default function Home() {
       .catch(err => console.error(err));
 
   }, []);
-  //TODO: Collect $5000 JMD FROM DANEIL TOMORROW
+  //WON: Collection $5000 JMD FROM DANEIL PENDING TRANSEFR & CONFIRMATION
   return (
     <div className={styles.container}>
       <Head>
@@ -61,6 +61,7 @@ export default function Home() {
             </p>
           </a>
         </div>
+        <pre>{data}</pre>
       </main>
 
       <footer className={styles.footer}>
@@ -77,4 +78,24 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+
+  // try {
+
+  const res = await fetch("http://workly-api:3000", {
+    method: "GET",
+  });
+  const data = await res.text();
+
+  console.log("Home", data);
+  return { props: { data } }
+  // }
+  // catch (err) {
+
+  //   console.error(err);
+  // }
+
+
 }
