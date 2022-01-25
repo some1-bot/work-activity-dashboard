@@ -1,3 +1,15 @@
+---
+title: Getting Prisma to Work With Linux Container
+summary: We find out how to configure prisma on Linux containers and multiple OS using docker compose.
+authors:
+    - Javanie Campbell <norelpy@dontemailhere.com>
+draft: true
+version: 1.0.0
+published: 2022-01-24
+updatedAt: 2022-01-25
+slug: getting-prisma-configured-linux-container
+---
+
 # Getting Prisma to work with Linux Container
 
 
