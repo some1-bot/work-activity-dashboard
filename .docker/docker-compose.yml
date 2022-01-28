@@ -26,6 +26,7 @@ services:
       NODE_ENV: development 
       AUTH0_SECRET: ${AUTH_SECRET}
       AUTH0_AUDIENCE: ${AUTH_AUDIENCE}
+      DATABASE_URL: ${DATABASE_URL}
     ports:
       - '3001:3000'
     volumes:
