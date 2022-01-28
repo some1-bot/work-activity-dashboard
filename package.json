@@ -6,8 +6,8 @@
   "scripts": {
     "start":"docker-compose -f .docker/docker-compose.yml up -d", 
     "start:rebuild":"docker-compose -f .docker/docker-compose.yml build --no-cache", 
-    "start:build:web":"docker-compose -f .docker/docker-compose.yml up frontend --force-recreate -d", 
-    "start:build:api":"docker-compose -f .docker/docker-compose.yml up workly-api --force-recreate -d", 
+    "start:build:web":"docker-compose -f .docker/docker-compose.yml up --force-recreate -d frontend ", 
+    "start:build:api":"docker-compose -f .docker/docker-compose.yml up --force-recreate -d workly-api", 
     "stop":"docker-compose -f .docker/docker-compose.yml down", 
     "stop:web":"docker-compose -f .docker/docker-compose.yml down frontend", 
     "stop:api":"docker-compose -f .docker/docker-compose.yml down workly-api",
