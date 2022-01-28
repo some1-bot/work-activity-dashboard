@@ -7,6 +7,7 @@
     "dev": " SET DEBUG=workly-api:* & npm start"
   },
   "dependencies": {
+    "@prisma/client": "^3.8.1",
     "apollo-server-core": "^3.6.2",
     "apollo-server-express": "^3.6.2",
     "cookie-parser": "~1.4.4",
