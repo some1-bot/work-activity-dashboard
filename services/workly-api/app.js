@@ -25,7 +25,7 @@ const users = [
 const typeDefs =`
 type Query{
     hello: String!
-    users: [User]
+    users: [User!]!
 }
 
 type User {
@@ -36,7 +36,10 @@ type User {
     resolvers = {
         Query: {
             hello: () => "Hello",
-            users: () => prisma.user.findMany()
+            users: async() => {
+                const allUsers = await prisma.user.findMany();
+                return allUsers;
+            } 
         },
     };
 async function startApolloServer(app, httpServer) {
