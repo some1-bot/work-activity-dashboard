@@ -1,9 +1,22 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+/**
+ * @typedef {import('@prisma/client').PrismaClient} Prisma
+ */
+
+/**
+ * Context for the resolvers
+ * @typedef {Object} context
+ * @property {Prisma} prisma
+ */
 
 const hello = () => "Hello";
-
-const users = async () => {
+/**
+ * 
+ * @param {any} parent Parent rosolver
+ * @param {*} args Args from req
+ * @param {context} context 
+ * @returns 
+ */
+const users = async (parent, args, context: { prisma }) => {
     return prisma.user.findMany();
 };
 
