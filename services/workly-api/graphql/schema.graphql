@@ -6,3 +6,7 @@ type Query {
   hello: String!
   users: [User!]!
 }
+
+type Mutation {
+    
+}
