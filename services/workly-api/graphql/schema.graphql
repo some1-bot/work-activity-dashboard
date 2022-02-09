@@ -7,6 +7,10 @@ type Query {
   users: [User!]!
 }
 
+type GithubLoginResult {
+  url: String! 
+}
+
 type Mutation {
-  loginWithGithub(scopes: [String!]!, isLoggedIn: Boolean): String!
+  loginWithGithub(scopes: [String!]!, isLoggedIn: Boolean): GithubLoginResult!
 }
