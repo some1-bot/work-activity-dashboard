@@ -33,9 +33,9 @@ const loginWithGithub = (parent, args, context) => {
         "read:public_key",
         "read:gpg_key",
     ];
-    const availableScopes = scopes.filter((scope) => args.scopes.includes(scope));
+    const availableScopes = args.scopes.filter((scope) => scopes.includes(scope));
 
-    return args.isLoggedIn !== false
+    return args.isLoggedIn === false
         || args.isLoggedIn === undefined
         || args.isLoggedIn === null
         ? client.getLoginURL(availableScopes)
