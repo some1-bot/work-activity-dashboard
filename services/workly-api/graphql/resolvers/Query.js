@@ -30,11 +30,11 @@ const users = async (parent, args, { prisma }) => {
  */
 const github = async (parent, args, context) => {
 
-    return context
+    return context.code
 };
 
 module.exports = {
     hello,
     users,
-    // github
+    github
 };
