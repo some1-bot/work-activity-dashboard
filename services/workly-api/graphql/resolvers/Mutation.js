@@ -7,7 +7,12 @@
  * @typedef {Object} context
  * @property {Prisma} prisma
  */
-
+const { GitHubClient } = require('../../utils/githubClient');
+const client = new GitHubClient(
+    process.env.GITHUB_CLIENTNAME,
+    process.env.GITHUB_CLIENTID,
+    process.env.GITHUB_SECRET
+);
 
 /**
  * 
@@ -17,9 +22,25 @@
  * @returns 
  */
 const loginWithGithub = (parent, args, context) => {
-    return "Not implemented";
-};
+    const scopes = [
+        "user",
+        "public_repo",
+        "repo",
+        "repo_deployment",
+        "repo:status",
+        "read:repo_hook",
+        "read:org",
+        "read:public_key",
+        "read:gpg_key",
+    ];
+    const availableScopes = scopes.filter((scope) => args.scopes.includes(scope));
 
+    return args.isLoggedIn !== false
+        || args.isLoggedIn === undefined
+        || args.isLoggedIn === null
+        ? client.getLoginURL(availableScopes)
+        : "Not possible!!";
+};
 
 module.exports = {
     loginWithGithub
