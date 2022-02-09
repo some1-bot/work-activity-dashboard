@@ -5,6 +5,7 @@ type User {
 type Query {
   hello: String!
   users: [User!]!
+  github: String
 }
 
 type GithubLoginResult {

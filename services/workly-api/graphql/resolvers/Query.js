@@ -6,6 +6,7 @@
  * Context for the resolvers
  * @typedef {Object} context
  * @property {Prisma} prisma
+ * @property {String} code
  */
 
 const hello = () => "Hello";
@@ -27,8 +28,9 @@ const users = async (parent, args, { prisma }) => {
  * @param {context} context 
  * @returns 
  */
-const github = async (parent, args,context) =>{
+const github = async (parent, args, context) => {
 
+    return context
 };
 
 module.exports = {

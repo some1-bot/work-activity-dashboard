@@ -6,6 +6,7 @@
  * Context for the resolvers
  * @typedef {Object} context
  * @property {Prisma} prisma
+ * @property {String} code
  */
 require('dotenv').config()
 var express = require('express');
@@ -40,8 +41,9 @@ const resolvers = {
  * @returns {context} context
  */
 function createContext(req, res) {
+    const code = req.query?.code;
 
-    return { prisma };
+    return { prisma, code };
 }
 
 async function startApolloServer(app, httpServer) {

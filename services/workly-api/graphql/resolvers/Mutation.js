@@ -6,6 +6,7 @@
  * Context for the resolvers
  * @typedef {Object} context
  * @property {Prisma} prisma
+ * @property {String} code
  */
 const { GitHubClient } = require('../../utils/githubClient');
 const client = new GitHubClient(
