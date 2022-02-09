@@ -4,31 +4,23 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const { ApolloServer } = require('apollo-server-express');
 const { ApolloServerPluginDrainHttpServer } = require('apollo-server-core');
-const { PrismaClient } = require('@prisma/client');
+const fs = require('fs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const Query = require('./graphql/resolvers/Query');
+const Mutation = require('./graphql/resolvers/Mutation');
 
-const prisma = new PrismaClient();
-const gql = String.raw;
-const typeDefs = gql`
-    type User {
-        id: ID!
-        name: String!
-    }
-    type Query{
-        hello: String!
-        users: [User!]!
-    }
-`,
-    resolvers = {
-        Query: {
-            hello: () => "Hello",
-            users: async () => {
-              return prisma.user.findMany()
-            }
-        }
-    };
+const typeDefs = fs.readFileSync(
+    path.join(__dirname, 'graphql', 'schema.graphql'),
+    'utf-8'
+);
+
+const resolvers = {
+    Query,
+    Mutation
+};
+
 async function startApolloServer(app, httpServer) {
     const server = new ApolloServer({
         typeDefs,
