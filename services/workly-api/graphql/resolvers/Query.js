@@ -12,11 +12,11 @@ const hello = () => "Hello";
 /**
  * 
  * @param {any} parent Parent rosolver
- * @param {*} args Args from req
+ * @param {any} args Args from req
  * @param {context} context 
  * @returns 
  */
-const users = async (parent, args, context: { prisma }) => {
+const users = async (parent, args, { prisma }) => {
     return prisma.user.findMany();
 };
 
