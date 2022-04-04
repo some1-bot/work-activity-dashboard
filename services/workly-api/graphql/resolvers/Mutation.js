@@ -2,6 +2,8 @@
  * @typedef {import('@prisma/client').PrismaClient} Prisma
  */
 
+const users = [];
+let id = 1;
 /**
  * Context for the resolvers
  * @typedef {Object} context
@@ -42,7 +44,12 @@ const loginWithGithub = (parent, args, context) => {
         ? client.getLoginURL(availableScopes)
         : "Not possible!!";
 };
-
+const  registerUser = (parent, args, ctx) => {
+    const {username, password} = args;
+    user.push({ id, username, password});
+    return `${id}`;
+}
 module.exports = {
+    registerUser,
     loginWithGithub
 };
